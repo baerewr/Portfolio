@@ -14,8 +14,8 @@ df_sort_index = dfs.sort_values(by=['acc_trade_price_24h'], axis=0, ascending=Fa
 main = df_sort_index[:30]['market']
 list_from_df = main.values.tolist()
 
-access = "ox7Clblzg5iDL6mHNvGzCUs8sirOR0ROGJDhGHvq"
-secret = "aRmU0OM6unozWEqX0Oe2Qgk6FIxDuZrypCHJsWw7"
+access = ""
+secret = ""
 upbit = pyupbit.Upbit(access, secret)
 
 df3 = upbit.get_balances()
@@ -42,7 +42,6 @@ def sell_time_process(ticker):
     average_price = upbit.get_avg_buy_price(ticker)
     now_price = pyupbit.get_current_price(ticker)
     end_time = final_time - datetime.timedelta(seconds=90)
-    #profit_rate = 1.01 # 수익률 (1.1 -> 10%)
     if end_time < now < final_time: 
         print(ticker, now_price, average_price)
         print('\033[30m', time.strftime('%m-%d %H:%M:%S'), ticker, "매도")
@@ -50,15 +49,9 @@ def sell_time_process(ticker):
         print(sell_log)
         time.sleep(300)
 def sell_process(ticker):
-    """
-    10프로만 이득보면 매도.
-    :param ticker: 매도하고자 하는 코인명
-    :return: None
-    """
-    ###############10프로
     now_price = pyupbit.get_current_price(ticker)
     average_price = upbit.get_avg_buy_price(ticker)
-    profit_rate = 1.006 # 수익률 (1.1 -> 10%)
+    profit_rate = 1.1 # 수익률 (1.1 -> 10%)
     # 현재가격이 구매가보다 10프로 보다 크다면
     if (average_price >0) and (now_price >= average_price * profit_rate):
         print(ticker, now_price, average_price)
@@ -72,11 +65,6 @@ def sell_process(ticker):
     
     
 def sell_low_process(ticker):
-    """
-    10프로만 이득보면 매도.
-    :param ticker: 매도하고자 하는 코인명
-    :return: None
-    """
     ###############10프로
     now_price = pyupbit.get_current_price(ticker)
     average_price = upbit.get_avg_buy_price(ticker)
@@ -105,91 +93,76 @@ def get_target_price(ticker, k):
     return target_price
 
 def get_ma5(ticker):
-    """5일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=5)
     ma5 = df['close'].rolling(5).mean().iloc[-1]
     return ma5
 
 def get_ma10(ticker):
-    """10일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=10)
     ma5 = df['close'].rolling(10).mean().iloc[-1]
     return ma5
 
 def get_ma20(ticker):
-    """20일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=20)
     ma5 = df['close'].rolling(20).mean().iloc[-1]
     return ma5
 
 def get_low_ma15(ticker):
-    """5일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=5)
     ma5 = df['close'].iloc[-2]#1,2,4
     return ma5
 
 def get_low_close(ticker):
-    """5일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=5)
     ma5 = df['low'].iloc[-2]#1,2,4
     return ma5
 
 def get_current_close(ticker):
-    """5일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=5)
     ma5 = df['close'].iloc[-1]#1,2,4
     return ma5
 
 def get_ma15(ticker):
-    """5일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=5)
     ma5 = df['open'].iloc[-2]#1,2,4
     return ma5
 
 def get_ma30(ticker):
-    """5일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=5)
     ma5 = df['open'].iloc[-3]
     return ma5
 
 def get_ma45(ticker):
-    """5일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=5)
     ma5 = df['open'].iloc[-4]
     return ma5
 
 def get_ma60(ticker):
-    """5일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=6)
     ma5 = df['open'].iloc[-5]
     return ma5
 
 def get_ma75(ticker):
-    """5일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=6)
     ma5 = df['open'].iloc[-6]
     return ma5
 
 def get_vma5(ticker):
-    """5일 거래 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=5)
     vma5 = df['volume'].rolling(5).mean().iloc[-1]
     return vma5
 
 def get_vma15(ticker):
-    """5일 거래 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=15)
     vma5 = df['volume'].rolling(15).mean().iloc[-1]
     return vma5
 
 def get_vma30(ticker):
-    """10일 거래 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=30)
     vma5 = df['volume'].rolling(30).mean().iloc[-1]
     return vma5
 
 def get_current_volume(ticker):
-    """15분 거래 거래량 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="minute5", count=1)
     vma5 = df['volume'].iloc[-1]
     return vma5
@@ -211,7 +184,7 @@ def is_up_or_down(df):
 
 def get_high_price(ticker):
     df = pyupbit.get_ohlcv(ticker, interval="day", count=1)
-    high_price = (df.iloc[0]['open']*1.045) #2%상승이하까지 중
+    high_price = (df.iloc[0]['open']*1.045) 
     return high_price
     
 def make_df_add_average_volume(ticker, interval, rolling_value, count=20):
