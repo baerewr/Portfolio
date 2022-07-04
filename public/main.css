@@ -1,0 +1,22 @@
+* {
+    font-family: 'Jua', sans-serif;
+}
+
+body {
+    background-color: rgba(17, 2, 2, 0.541);
+    ;
+}
+
+#jumbotron {
+    margin-top: 30px;
+    text-align: center;
+    background-color: #fff;
+}
+w
+#movie-list {
+    margin-top: 30px;
+}
+
+#rivew-button {
+    width: 100%;
+}

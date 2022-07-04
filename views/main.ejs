@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.title %></title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/main.css"/>
+</head>
+<body>
+<!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAclBMVEX///8AAAAZGRnm5ubc3NycnJyJiYk4ODju7u7Ly8uPj48+Pj7ExMT5+fnT09Otra17e3tubm5hYWHz8/MTExO6urpZWVlGRkYyMjIlJSWYmJinp6dTU1Po6Oi0tLR8fHwpKSlxcXEODg5KSkpnZ2ceHh7bbS9CAAAESElEQVR4nO2a6VriMBRAKQgiq8rmNqz6/q84LG3uzdJAITp2vnN+2TQpOd4muQk0GgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcCXdlsXkslbSYBi7291fDMuqqk8uefaFnTlDJ7OZ9lez7rlGLak/CNw2N9/2F3fm6s6uNZCHjFTxuxT/ucmswDU8Mg/1W/EmVZ8Ct83NdiNi2FiYOx+qdGpKH28zKwgaZllzGWv0omoGXtMLDR/kIQ+mMHkIywyzbOF2SBjpeoF/xYWGjb4fxOGrKVulESw3PI2iICtda369YWAkjqXo7Gxwu2H2HJootcER/2W61DAwEuWxqUIYNcwWQcWBXal9vaEXRBXCRKPwjGG2CDX5tOu8XG/ojcQvc50shGcMs0+/xcStM3JrXG6ogniYTr8jhGK4Xs6Ws/Hbk9N9/x1cuoa96w3VunOYsdbmKtFaaBneFyUj+y30+rVzDbMbDK2RqP53qSbSoOG+UzLHZdnOaaAytoIHp0oFQzWdzlU6k24Uhg3t0TmzG7R9w80NhiqIj/JnK1Q1qaH2WNsNJOkQnE1AFUM1nSrXZHqNUkMdRSsNlw7vZFJywlzJ0Fldk4ew1FD9b5+D9bOx9O3DblrJsHH/vSEsN5Se6e3DUNbkrkqx7NWrmqEfxHRrYdRQpS7qNZUdz379kqnh3WpZzdAbie7EdSPlhrJH6kihjL2lrtG3WlY0dIOYdBTGDGXWlGGmMrbDpWQkVu8rGlob6uQhjBmal1Bya8k6jglrz1xamVtVQzuIiUMYMzRr4tasd3PTj+PYlPxmrRtWNbRGYtqJtBE1nJlPLbLErilpnuZXybn0BqOyoQ5i6hDGDGXeLAzlmCiffGS7o//1lQ1VEFOPwooxlI7sno/IW6s3GNUNZ5dUupKIoTkVnebjUCUBPmrRrG7ovy7piBg+ubdk6gygcrvaGG6LW3O3IIj0rS6G8qk9tyDI2LSsi+GH+dR8D7+JG0rmVhNDFbFTwTAuqFaymhg2zYfmS5TM6CWYbwHqYahOFfN0Ra19YZq1MlSHGPm5d1eV9DUywxaZWw0Mh/rINO+3ZGxObuzf+P2GA32eVpzry3GKczzqpeO/1bCY7CdLfR5sPlI2Sl/uI5wtValhZNfwI4ZfvQMb9zi0OCgs2ewekEn2M2q46tl0JKg/YhjGHNGUHFgcUAvlJGboIcn6vzM0v7SQQ6fAV4qysozrZig/JSk7OHT691EzQxlxQ1n0Aj9UUj+g6NbKUH0bIZNJ4KcX+iHtGhludLAkA5iFHiIW97UxnFtfzstsuQ3/mk7SgVEtDF86zuIcPlJTyNeNnV9n2MuamtfFauxnV/Ntftv7QjunVTxlOt1fNad57ZNhswTLsChLbwgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8lfwE74S4GxBvEawAAAABJRU5ErkJggg==" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      간편 영화 후기
+    </a>
+</nav>
+<div class="container">
+    <div class="jumbotron" id="jumbotron">
+        <h1 class="display-4">인기/최신 영화에 한마디씩!</h1>
+        <p class="lead">themoviedb라는 아주 훌륭한 무료 영화 데이터베이스 플랫폼 API를 사용하여 영화정보를 가져왔습니다. </p>
+        <hr class="my-4">
+        <p>인터넷 강의 수강하면서 독학으로 만들었습니다!</p>
+        <p>부족한 실력이지만, 이쁘게 봐주세요!</p>
+        <a class="btn btn-danger btn-lg" href="https://www.themoviedb.org/" role="button" target="_blank">themoviedb로 키발급 받으러가기</a>
+    </div>
+    <br/><br/>
+    <div class="container">
+        <div class="row movie-list" id="movie-list">
+          <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="review_modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">후기</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- <p>Modal body text goes here.</p> -->
+        </div>
+        <div class="modal-footer">
+            <input type="text" class="form-control" id="review" style="width:70%">
+          <button type="button" class="btn btn-primary" onclick="addReview()">후기 쓰기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    let target_movie = 0;
+    $(document).ready(function(){
+        $.ajax({
+            url: "https://api.themoviedb.org/3/movie/popular?api_key=10923b261ba94d897ac6b81148314a3f&page=1", // 클라이언트가 요청을 보낼 서버의 URL 주소
+            data: {}, // HTTP 요청과 함께 서버로 보낼 데이터 POST 방식에서만 사용
+            type: "GET", // HTTP 요청 방식(GET, POST)
+            success:function(json){
+                console.log(json)
+                $(".movie-list").html('')
+                let image_host = "https://image.tmdb.org/t/p/w500/"
+                let movie_list = json.results;
+                for(let i=0; i<movie_list.length; i++){
+                    let card = `<div class="col-sm" style="margin-top:10px;border:none">
+                        <div class="card" style="width: 18rem;">
+                            <img src="${image_host + '' + movie_list[i].poster_path }" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${movie_list[i].title}</h5>
+                            <a href="#!" class="btn btn-success" style="width:100%" onclick=review(${movie_list[i].id})>후기 보기</a>
+                            </div>
+                        </div>
+                    </div>`
+                    $(".movie-list").append(card)
+                }
+            },
+            error:function(err){
+            }
+        })
+    })
+    function review(id){
+        target_movie = id;
+        $(".modal-body").html('')
+        $.ajax({
+            url: `/review/read?movie_id=${target_movie}`, // 클라이언트가 요청을 보낼 서버의 URL 주소
+            data: {}, // HTTP 요청과 함께 서버로 보낼 데이터 POST 방식에서만 사용
+            type: "GET", // HTTP 요청 방식(GET, POST)
+            success:function(json){
+                console.log(json)
+               let reviews = json.data;
+               for(let i=0; i<reviews.length; i++){
+                   $(".modal-body").append(`<p>${reviews[i].review}</p>`)
+               }
+            },
+            error:function(e){
+            }
+        })
+        $("#review_modal").modal('show')
+    }
+    function addReview(){
+        let review = $("#review").val();
+        let review_html = `<p>${review}</p>`
+        $.ajax({
+            url: `/review/create`, // 클라이언트가 요청을 보낼 서버의 URL 주소
+            data: {
+                movie_id:target_movie,
+                review:review
+            }, // HTTP 요청과 함께 서버로 보낼 데이터 POST 방식에서만 사용
+            type: "POST", // HTTP 요청 방식(GET, POST)
+            success:function(json){
+              console.log(json)
+              if(json.success == 200){
+                console.log("저장이 잘된 경우")
+              }else if(json.success == 400){
+                alert("뭔가 잘못됐다. 데이터가 이상하다")
+              }
+            },
+            error:function(e){
+            }
+        })
+        $(".modal-body").append(review_html)
+        $("#review").val('')
+    }
+</script>
+</body>
+</html>
